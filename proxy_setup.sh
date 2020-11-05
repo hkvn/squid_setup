@@ -39,4 +39,7 @@ echo "==========================================="
 
 echo "* - nofile 500000" >> /etc/security/limits.conf
 
-echo "=========== Init ================="
+echo "=========== Init =================\n"
+echo "proxy\n"
+echo $PASSWORD
+
