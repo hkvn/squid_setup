@@ -30,7 +30,7 @@ mkdir /etc/squid
 
 PASSWORD=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)
 printf "proxy:$(openssl passwd -apr1 $PASSWORD)\n" > squid.auth
-
+echo $PASSWORD
 cp squid.conf /etc/squid/
 cp squid.auth /etc/squid/
 
