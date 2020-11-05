@@ -13,6 +13,12 @@ echo "=========== Install Depend ================="
 apt install build-essential vim git wget htop curl -y
 
 echo "==========================================="
+mkdir /etc/squid
+PASSWORD=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)
+printf "proxy:$(openssl passwd -apr1 $PASSWORD)\n" > squid.auth
+echo $PASSWORD
+cp squid.conf /etc/squid/
+cp squid.auth /etc/squid/
 
 # build squid
 
@@ -26,13 +32,6 @@ cd squid-3.5.27
 make && make install
 chmod 777 /usr/local/squid/var/logs/
 mkdir /var/spool/squid3
-mkdir /etc/squid
-
-PASSWORD=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)
-printf "proxy:$(openssl passwd -apr1 $PASSWORD)\n" > squid.auth
-echo $PASSWORD
-cp squid.conf /etc/squid/
-cp squid.auth /etc/squid/
 
 echo "==========================================="
 
