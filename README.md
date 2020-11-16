@@ -4,6 +4,8 @@ Clone source code
 
 cd /opt
 
+sudo apt update -y && apt install git -y
+
 git clone https://github.com/hkvn/squid_setup.git
 
 Install
