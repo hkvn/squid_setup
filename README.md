@@ -8,6 +8,8 @@ sudo apt update -y && apt install git -y
 
 git clone https://github.com/hkvn/squid_setup.git
 
+cd squid_setup
+
 Install
 
 bash proxy_setup.sh
