@@ -1,5 +1,12 @@
 # squid_setup
 
+Clone source code
+cd /opt
+git clone https://github.com/hkvn/squid_setup.git
+
+Install
+bash proxy_setup.sh
+
 Start Squid
 /usr/local/squid/sbin/squid -f /etc/squid/squid.conf
 
